@@ -1,0 +1,100 @@
+/* =============================================================
+   layout.css — page skeleton: sidebar column + content column,
+   the mobile top bar, page headers and the footer.
+   ============================================================= */
+
+.shell {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.content {
+  padding: var(--space-8) clamp(var(--space-5), 5vw, var(--space-8)) var(--space-6);
+  min-width: 0;
+  outline: none;
+}
+.content > * { max-width: var(--content-wide); }
+
+.page-body { max-width: var(--content-width); }
+.page-body--home { max-width: var(--content-wide); }
+
+/* ---------- Page header ---------- */
+.page-header {
+  max-width: var(--content-width);
+  margin-bottom: var(--space-7);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--rule);
+}
+.page-title { margin-bottom: var(--space-3); }
+.page-lead {
+  font-family: var(--font-serif);
+  font-size: var(--text-md);
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 38rem;
+}
+
+.kicker {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin: 0 0 var(--space-3);
+}
+
+/* ---------- Section headings inside pages ---------- */
+.section-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-top: var(--space-7);
+}
+.section-title::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid var(--rule);
+  transform: translateY(-0.3em);
+}
+.page-body > .section-title:first-child { margin-top: 0; }
+
+/* ---------- Footer ---------- */
+.footer {
+  margin-top: var(--space-8);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--rule);
+  font-size: var(--text-sm);
+  color: var(--ink-faint);
+  max-width: var(--content-width);
+}
+.footer p { margin: 0 0 var(--space-1); }
+.footer a { color: inherit; }
+.footer__meta { font-family: var(--font-mono); font-size: var(--text-xs); }
+
+/* ---------- Mobile top bar (hidden on desktop) ---------- */
+.topbar { display: none; }
+
+@media (max-width: 900px) {
+  .shell { grid-template-columns: minmax(0, 1fr); }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 30;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: var(--space-3) var(--space-4);
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .topbar__name {
+    font-family: var(--font-serif);
+    font-size: var(--text-md);
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .content { padding: var(--space-6) var(--space-4) var(--space-5); }
+  .page-header { margin-bottom: var(--space-6); }
+}
