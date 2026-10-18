@@ -1,0 +1,62 @@
+/* =============================================================
+   pages/research.css — model equation and research theme cards.
+   ============================================================= */
+
+.equation-card {
+  margin: var(--space-5) 0 var(--space-6);
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  font-size: var(--text-md);
+}
+.equation-card p:last-child { margin-bottom: 0; font-size: var(--text-sm); color: var(--ink-soft); }
+
+.themes { display: grid; gap: var(--space-3); margin-bottom: var(--space-6); }
+
+.theme {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.theme:hover { border-color: var(--rule-strong); }
+.theme[open] { border-color: var(--accent); box-shadow: var(--shadow); }
+
+.theme > summary {
+  display: grid;
+  grid-template-columns: 2.6rem 1fr 1.2rem;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  cursor: pointer;
+  list-style: none;
+}
+.theme > summary::-webkit-details-marker { display: none; }
+.theme__num { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--signal); }
+.theme__title { display: block; font-family: var(--font-serif); font-size: var(--text-lg); line-height: 1.25; }
+.theme__summary { display: block; grid-column: 2; margin: var(--space-1) 0 0; font-size: var(--text-sm); color: var(--ink-soft); }
+.theme > summary::after {
+  content: "+";
+  grid-column: 3; grid-row: 1;
+  font-family: var(--font-mono);
+  color: var(--ink-faint);
+  transition: transform 0.2s;
+}
+.theme[open] > summary::after { transform: rotate(45deg); color: var(--accent); }
+
+.theme__body {
+  padding: 0 var(--space-5) var(--space-5) calc(var(--space-5) + 2.6rem + var(--space-2));
+  font-size: var(--text-sm);
+}
+.theme__body .keywords { margin: var(--space-3) 0 0; }
+.theme__body .keywords li { font-size: var(--text-xs); }
+
+@media (max-width: 560px) {
+  .theme > summary { grid-template-columns: 2rem 1fr 1rem; padding: var(--space-4); }
+  .theme__body { padding: 0 var(--space-4) var(--space-4); }
+}
+
+.msc { font-family: var(--font-mono); font-size: var(--text-sm); }
+.msc td:first-child { white-space: nowrap; color: var(--accent); }
+.msc td { font-family: var(--font-sans); }
