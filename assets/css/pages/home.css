@@ -51,6 +51,7 @@
 }
 .paths__slider > span { display: flex; justify-content: space-between; gap: var(--space-2); }
 .paths__value { font-family: var(--font-mono); color: var(--ink); }
+.paths__hint { font-style: italic; }
 .paths__slider input { width: 100%; accent-color: var(--accent); }
 .paths__caption { margin-top: var(--space-3); font-size: var(--text-xs); line-height: 1.55; color: var(--ink-faint); }
 
