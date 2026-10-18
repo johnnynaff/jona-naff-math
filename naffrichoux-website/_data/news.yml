@@ -1,6 +1,0 @@
-# Short news items for the Home page, newest first. text: Markdown allowed.
-# Keep 3–6 items; older ones can simply be deleted.
-- date: "2026-10-18"
-  text: New website online.
-- date: "2026-09-01"     # TODO: replace with your real news
-  text: Example news item — e.g. *started my PhD at LMAP* or *preprint posted on arXiv*.

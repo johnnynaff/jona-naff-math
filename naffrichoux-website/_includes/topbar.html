@@ -1,8 +1,0 @@
-{% comment %} Bar shown only on small screens: name + menu button that opens the sidebar. {% endcomment %}
-<header class="topbar">
-  <a class="topbar__name" href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
-  <button class="icon-button topbar__menu" type="button"
-          aria-controls="sidebar" aria-expanded="false" aria-label="Open menu" data-nav-open>
-    {% include icon.html name="menu" %}
-  </button>
-</header>
