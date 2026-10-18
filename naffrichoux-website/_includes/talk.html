@@ -1,0 +1,32 @@
+{% comment %}
+  One talk. Called from talks.md with:  {% include talk.html talk=talk %}
+  Fields come from _data/talks.yml.
+{% endcomment %}
+{% assign talk = include.talk %}
+{% assign search_text = talk.title | append: " " | append: talk.event | append: " " | append: talk.location | downcase | escape %}
+<article class="entry entry--talk" data-filter-item data-type="{{ talk.type }}" data-search="{{ search_text }}">
+  <div class="entry__aside">
+    <time class="entry__date" datetime="{{ talk.date }}">
+      <span class="entry__day">{{ talk.date | date: "%-d" }}</span>
+      <span class="entry__month">{{ talk.date | date: "%b" }}</span>
+    </time>
+  </div>
+
+  <div class="entry__main">
+    <h3 class="entry__title">{{ talk.title }}</h3>
+    <p class="entry__people">
+      {% if talk.url %}<a href="{{ talk.url }}">{{ talk.event }}</a>{% else %}{{ talk.event }}{% endif %}
+    </p>
+    <p class="entry__meta">
+      <span class="tag tag--{{ talk.type }}">{{ site.data.labels.talk_types[talk.type] | default: talk.type }}</span>
+      {% if talk.location %}<span class="entry__place">{% include icon.html name="pin" %} {{ talk.location }}</span>{% endif %}
+      {% if talk.upcoming %}<span class="tag tag--upcoming">upcoming</span>{% endif %}
+      {% if talk.example %}<span class="tag tag--example">example — replace</span>{% endif %}
+    </p>
+    {% if talk.slides %}
+    <div class="entry__links">
+      <a class="chip-link" href="{{ talk.slides | relative_url }}">{% include icon.html name="slides" %} Slides</a>
+    </div>
+    {% endif %}
+  </div>
+</article>

@@ -1,0 +1,13 @@
+# Display names for the "type" fields. These also create the filter buttons
+# on the Publications and Talks pages (buttons with no matching entry are hidden).
+publication_types:
+  article: Journal article
+  preprint: Preprint
+  proceedings: Proceedings
+  thesis: Thesis
+
+talk_types:
+  conference: Conference
+  workshop: Workshop
+  seminar: Seminar
+  poster: Poster

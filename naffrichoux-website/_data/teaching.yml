@@ -1,0 +1,28 @@
+# Teaching, grouped by academic year (newest first).
+#   course, level, kind (Lectures / Tutorials (TD) / Lab sessions (TP)), hours, institution
+#   note: optional short line under the course name
+#   example: true → shows an "example — replace" tag
+
+- year: "2026–2027"
+  institution: Université de Pau et des Pays de l'Adour
+  courses:
+    - course: Probability (example)
+      level: L3 Mathematics
+      kind: Tutorials (TD)
+      hours: 32
+      example: true
+    - course: Numerical analysis (example)
+      level: L2 Mathematics
+      kind: Lab sessions (TP)
+      hours: 24
+      note: Python practicals
+      example: true
+
+- year: "2025–2026"
+  institution: Université de Pau et des Pays de l'Adour
+  courses:
+    - course: Calculus (example)
+      level: L1 Science
+      kind: Tutorials (TD)
+      hours: 36
+      example: true

@@ -1,0 +1,15 @@
+{% comment %} Scripts loaded at the end of <body>. Each file does one job — see assets/js/. {% endcomment %}
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+
+<script defer src="{{ '/assets/js/math.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/nav.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/filter.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/copy.js' | relative_url }}"></script>
+{% if page.layout == "home" %}
+<script defer src="{{ '/assets/js/sample-paths.js' | relative_url }}"></script>
+{% endif %}
+{% if page.body_class == "research" %}
+<script defer src="{{ '/assets/js/research.js' | relative_url }}"></script>
+{% endif %}

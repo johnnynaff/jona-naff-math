@@ -1,0 +1,43 @@
+# Publications, listed in the order written here (put the newest first).
+#
+# Fields
+#   title, authors (list), year            required
+#   type        article | preprint | proceedings | thesis   (see _data/labels.yml)
+#   venue       journal or "arXiv preprint" etc.
+#   status      optional note: "Submitted", "To appear", ...
+#   arxiv       arXiv identifier only, e.g. 2501.01234
+#   hal         HAL identifier only, e.g. hal-04512345
+#   doi         DOI only, e.g. 10.1214/xx-AAP0000
+#   pdf         link to a file you put in /assets/files/
+#   url         where the title should link (optional)
+#   abstract    Markdown, LaTeX with $$ … $$ (kramdown syntax)
+#   bibtex      multi-line, keep the "|" after bibtex:
+#   example     true → shows an "example — replace" tag. Delete these two entries when you add yours.
+
+- title: "Example preprint — replace with the title of your first paper"
+  authors: ["J. Naffrichoux", "A. Coauthor"]
+  year: 2026
+  type: preprint
+  venue: arXiv preprint
+  status: Submitted
+  arxiv: "0000.00000"
+  abstract: >-
+    One or two sentences summarising the result. For instance: we prove strong well-posedness
+    of a parabolic SPDE with a distributional drift driven by fractional noise with Hurst
+    index $$H$$, and derive a convergence rate for its numerical approximation.
+  bibtex: |
+    @article{naffrichoux2026example,
+      title   = {Example preprint},
+      author  = {Naffrichoux, Jonathan and Coauthor, A.},
+      journal = {arXiv preprint arXiv:0000.00000},
+      year    = {2026}
+    }
+  example: true
+
+- title: "Example journal article — delete this entry"
+  authors: ["A. Coauthor", "J. Naffrichoux"]
+  year: 2025
+  type: article
+  venue: Journal name
+  doi: "10.0000/example"
+  example: true

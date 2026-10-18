@@ -1,0 +1,38 @@
+{% comment %}
+  Home page hero: introduction on the left, interactive sample-path figure on the right.
+  The figure is drawn by assets/js/sample-paths.js.
+{% endcomment %}
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__text">
+    <p class="kicker">{{ site.author.position }} · {{ site.lab.short }}</p>
+    <h1 class="hero__title" id="hero-title">{{ site.author.name }}</h1>
+    <p class="hero__field">{{ site.author.field }}</p>
+    <p class="hero__lead">{{ page.lead }}</p>
+    <div class="button-row">
+      <a class="button button--primary" href="{{ '/research/' | relative_url }}">
+        Research {% include icon.html name="arrow" %}
+      </a>
+      <a class="button" href="{{ '/publications/' | relative_url }}">Publications</a>
+      <a class="button button--ghost" href="{{ '/contact/' | relative_url }}">Contact</a>
+    </div>
+  </div>
+
+  <figure class="paths" data-sample-paths>
+    <canvas class="paths__canvas" width="560" height="320" role="img"
+            aria-label="Simulated sample paths of a stochastic differential equation with two stable states"></canvas>
+    <div class="paths__controls">
+      <label class="paths__slider">
+        <span>Noise intensity <span class="paths__value">\(\sigma =\) <output data-sigma-out>0.55</output></span></span>
+        <input type="range" min="0.15" max="1.2" step="0.05" value="0.55" data-sigma>
+      </label>
+      <button class="button button--small" type="button" data-resample>
+        {% include icon.html name="refresh" %} Resample
+      </button>
+    </div>
+    <figcaption class="paths__caption">
+      Euler–Maruyama paths of the double-well equation
+      \(dX_t = (X_t - X_t^3)\,dt + \sigma\,dW_t\).
+      Increase \(\sigma\) to watch the noise push paths between the two wells.
+    </figcaption>
+  </figure>
+</section>

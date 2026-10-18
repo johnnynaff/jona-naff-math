@@ -1,0 +1,12 @@
+---
+layout: default
+---
+{% comment %}
+  Home page layout: the hero comes from _includes/hero.html,
+  the rest of the page from index.html.
+{% endcomment %}
+{% include hero.html %}
+
+<div class="page-body page-body--home">
+  {{ content }}
+</div>

@@ -1,0 +1,58 @@
+{% comment %}
+  One publication. Called from publications.md with:  {% include publication.html pub=pub %}
+  Fields come from _data/publications.yml.
+{% endcomment %}
+{% assign pub = include.pub %}
+{% assign author_text = pub.authors | join: " " %}
+{% assign search_text = pub.title | append: " " | append: author_text | append: " " | append: pub.venue | append: " " | append: pub.year | downcase | escape %}
+<article class="entry" data-filter-item data-type="{{ pub.type }}" data-search="{{ search_text }}">
+  <div class="entry__aside">
+    <span class="entry__year">{{ pub.year }}</span>
+  </div>
+
+  <div class="entry__main">
+    <h3 class="entry__title">
+      {% if pub.url %}<a href="{{ pub.url }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}
+    </h3>
+
+    <p class="entry__people">
+      {% for a in pub.authors %}{% if a == site.author.short_name %}<strong class="me">{{ a }}</strong>{% else %}{{ a }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}
+    </p>
+
+    <p class="entry__meta">
+      <span class="tag tag--{{ pub.type }}">{{ site.data.labels.publication_types[pub.type] | default: pub.type }}</span>
+      {% if pub.venue %}<em>{{ pub.venue }}</em>{% endif %}
+      {% if pub.status %}<span class="entry__status">{{ pub.status }}</span>{% endif %}
+      {% if pub.example %}<span class="tag tag--example">example — replace</span>{% endif %}
+    </p>
+
+    <div class="entry__links">
+      {% if pub.arxiv %}<a class="chip-link" href="https://arxiv.org/abs/{{ pub.arxiv }}">arXiv:{{ pub.arxiv }}</a>{% endif %}
+      {% if pub.hal %}<a class="chip-link" href="https://hal.science/{{ pub.hal }}">HAL</a>{% endif %}
+      {% if pub.doi %}<a class="chip-link" href="https://doi.org/{{ pub.doi }}">DOI</a>{% endif %}
+      {% if pub.pdf %}<a class="chip-link" href="{{ pub.pdf | relative_url }}">{% include icon.html name="file" %} PDF</a>{% endif %}
+    </div>
+
+    {% if pub.abstract or pub.bibtex %}
+    <div class="entry__more">
+      {% if pub.abstract %}
+      <details class="disclosure">
+        <summary>Abstract</summary>
+        <div class="disclosure__body">{{ pub.abstract | markdownify }}</div>
+      </details>
+      {% endif %}
+      {% if pub.bibtex %}
+      <details class="disclosure">
+        <summary>BibTeX</summary>
+        <div class="disclosure__body disclosure__body--code">
+          <pre><code>{{ pub.bibtex | strip | escape }}</code></pre>
+          <button class="button button--small copy-button" type="button" data-copy-from="pre">
+            {% include icon.html name="copy" %} <span data-copy-label>Copy</span>
+          </button>
+        </div>
+      </details>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</article>

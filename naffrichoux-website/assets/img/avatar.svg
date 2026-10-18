@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Placeholder portrait. Replace with a photo: put photo.jpg in this folder and set author.avatar in _config.yml -->
+  <rect width="200" height="200" fill="#24324a"/>
+  <path d="M0 132 C 30 120, 45 150, 70 128 S 110 92, 135 118 S 175 140, 200 104 V200 H0Z" fill="#2c3d59"/>
+  <path d="M0 132 C 30 120, 45 150, 70 128 S 110 92, 135 118 S 175 140, 200 104" fill="none" stroke="#e3a857" stroke-width="2" opacity="0.8"/>
+  <text x="100" y="98" text-anchor="middle" dominant-baseline="middle" font-family="Georgia, 'Times New Roman', serif" font-size="68" fill="#ece8de" letter-spacing="2">JN</text>
+</svg>
